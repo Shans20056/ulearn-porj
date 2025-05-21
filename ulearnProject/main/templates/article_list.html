@@ -7,6 +7,34 @@
     <link rel="icon" href="../../main/static/image/101-database.svg" type="image/x-icon">
 </head>
 <body>
-    
+    <header>
+        <div class="header_logo">
+            <a href="{% url 'main:home' %}">DataHunt</a>
+        </div>
+
+        <dev class="navbar-nav-center">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'main:home' %}">Главная</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'main:about' %}">О нас</a>
+            </li>
+            <li>
+                <a class="nav-link " href="{% url 'main:contact' %}">Контакты</a>
+            </li>
+        </dev>
+    </header>
+
+
+    <div class="container content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="text-muted">© 2025 Yegor Shabrov. Все права защищены.</p>
+        </div>
+    </footer>
 </body>
 </html>
