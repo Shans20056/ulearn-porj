@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
     <title>DataHunt</title>
     <link rel="icon" href="../../main/static/image/101-database.svg" type="image/x-icon">
     <link rel="icon" href="../../media/101-database.svg" type="image/x-icon">
-    <link rel="stylesheet" href="../static/css/static.css">
+    <link rel="stylesheet" href="{% static 'css/static.css' %}">
 </head>
 <body>
     <header>
@@ -16,7 +17,7 @@
 
         <dev class="navbar-nav-center">
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}">Главная</a>
+                <a class="nav-link" href="{% url 'home' %}">Статистика</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'about' %}">О нас</a>
