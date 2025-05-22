@@ -14,10 +14,31 @@
 {
     max-width: 960px;
     margin: 0 auto;
+    position: relative;
 }
 .main_info
 {
+    
     width: 100%;
+}
+.main_info img
+{
+    width: 300px;
+    position: absolute;
+    z-index: -100;
+    opacity: 25%;
+    
+}
+
+.main_info .analityc_circle_img
+{
+    left: -210px;
+}
+
+.main_info .analityc
+{
+    right: -30px;
+    top: 150px;
 }
 
 .main_info_content
@@ -26,6 +47,11 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+    background-image: url(../image/crumpled-paper-texture_1048-2259.avif);
+    background-size: auto;
+    border-radius: 20px;
+    margin-top: 30px;
+    line-height: 1.2;
 
 }
 
@@ -34,8 +60,15 @@
     margin: auto;
     padding: 20px;
 }
+
+.main_info_content p .accent
+{
+    color: #f3a007;
+    display: inline;
+}
 .main_info_content p
 {
+    display: inline;
 }
 .main_info_content img
 {
@@ -45,6 +78,9 @@
 .main_info h2
 {
     display: block;
+    color: #f3a007;
+    margin-top: 50px;
+    text-align: center;
     
 }
 
@@ -54,7 +90,7 @@
     padding-left: 10px;
     font-weight: bold;
     font-style: italic;
-    text-shadow: 2px 2px 4px rgba(33, 37, 41, 0.5); /* добавлена тень */
+    text-shadow: 2px 2px 4px rgba(2, 12, 21, 0.5); /* добавлена тень */
     padding: 26px 20px;
 }
 
@@ -64,7 +100,7 @@ a:hover {
 
 body {
     background-color: #f8f9fa;
-    color: #212529;
+    color: #15191d;
 }
 
 header {
