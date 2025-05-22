@@ -1,5 +1,20 @@
 {% extends 'article_list.html' %}
-
 {% block content %}
-
-{% endblock %} 
+     <div class="navbar-nav-center">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'article_direct' slug='GeneralStatistics' %}">Общая статистика</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'article_direct' slug='Demand' %}">Востребованность</a>
+            </li>
+            <li>
+                <a class="nav-link " href="{% url 'article_direct' slug='Geography' %}">География</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'article_direct' slug='Skills' %}">Навыки</a>
+            </li>
+            <li>
+                <a class="nav-link " href="{% url 'article_direct' slug='LatestVacancies' %}">Последние вакансии</a>
+            </li>
+        </div>
+{% endblock %}

@@ -30,3 +30,4 @@ def statistics(request):
     return render(request, 'main/statistics.html', {
         'title': 'Статистика'
     })
+
