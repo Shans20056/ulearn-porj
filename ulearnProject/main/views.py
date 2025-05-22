@@ -25,3 +25,8 @@ def contact(request):
     return render(request, 'main/contact.html', {
         'title': 'Контакты'
     })
+
+def statistics(request):
+    return render(request, 'main/statistics.html', {
+        'title': 'Статистика'
+    })
