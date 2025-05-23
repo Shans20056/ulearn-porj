@@ -181,6 +181,20 @@ header {
     color: #f8f9fa;
 }
 
+.nav-link-1 {
+    display: block; /* теперь фон применяется ко всей области */
+    padding: 26px 40px; /* увеличь область клика и ширину блока */
+    text-decoration: none;
+    color: 212529;
+    margin: 0 20px; /* увеличено расстояние между блоками */
+    text-align: center; /* выравнивание текста по центру */
+}
+
+.nav-link-1:hover {
+    background-color: #212529;
+    color: #0080ff;
+}
+
 footer {
     background-color: #212529;
     color: #f8f9fa;

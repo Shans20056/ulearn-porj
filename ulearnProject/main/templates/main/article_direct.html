@@ -1,7 +1,27 @@
 {% extends 'article_list.html' %}
+{% load static %}
 
 {% block content %}
-  <h1>{{ article.title }}</h1>
-  <p>{{ article.content }}</p>
-  <p><em>{{ article.date }}</em></p>
+<div class="navbar-nav-center">
+            <li class="nav-item">
+                <a class="nav-link-1" href="{% url 'article_direct' slug='GeneralStatistics' %}">Общая статистика</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link-1" href="{% url 'article_direct' slug='Demand' %}">Востребованность</a>
+            </li>
+            <li>
+                <a class="nav-link-1" href="{% url 'article_direct' slug='Geography' %}">География</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link-1" href="{% url 'article_direct' slug='Skills' %}">Навыки</a>
+            </li>
+            <li>
+                <a class="nav-link-1" href="{% url 'article_direct' slug='LatestVacancies' %}">Последние вакансии</a>
+            </li>
+        </div>
+<h1>{{ article.title }}</h1>
+
+<div>
+    {{ article.content|safe }}
+</div>
 {% endblock %}
