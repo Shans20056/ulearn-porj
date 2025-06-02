@@ -2,23 +2,24 @@
 {% load static %}
 
 {% block content %}
-<div class="navbar-nav-center">
-            <li class="nav-item">
-                <a class="nav-link-1" href="{% url 'article_direct' slug='GeneralStatistics' %}">Общая статистика</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link-1" href="{% url 'article_direct' slug='Demand' %}">Востребованность</a>
-            </li>
-            <li>
-                <a class="nav-link-1" href="{% url 'article_direct' slug='Geography' %}">География</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link-1" href="{% url 'article_direct' slug='Skills' %}">Навыки</a>
+<ul class="navbar-nav-right">
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="#">Statistics</a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'article_direct' slug='GeneralStatistics' %}">General statistics</a></li>
+                    <li><a href="{% url 'article_direct' slug='Demand' %}">Demand</a></li>
+                    <li><a href="{% url 'article_direct' slug='Geography' %}">Geography</a></li>
+                    <li><a href="{% url 'article_direct' slug='Skills' %}">Skills</a></li>
+                    <li><a href="{% url 'article_direct' slug='LatestVacancies' %}">Latest vacancies</a></li>
+                </ul>
             </li>
             <li>
-                <a class="nav-link-1" href="{% url 'article_direct' slug='LatestVacancies' %}">Последние вакансии</a>
+                <a class="nav-link " href="{% url 'contact' %}">Contacts</a>
             </li>
-        </div>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About us</a>
+            </li>
+        </ul>
 <h1>{{ article.title }}</h1>
 
 <div>

@@ -1,165 +1,33 @@
-/* General Styles */
-@main_color = ;
-@accent_color = ;
-
-* {
-    font-family: sans-serif;
-    box-sizing: border-box;
-    list-style-type: none;
-    color: inherit;
-    text-decoration: none;
-}
-
-.container
-{
-    max-width: 960px;
-    margin: 0 auto;
-    position: relative;
-}
-.main_info
-{
-    
-    width: 100%;
-}
-.main_info img
-{
-    width: 300px;
-    position: absolute;
-    z-index: -100;
-    opacity: 25%;
-    
-}
-
-.main_info .analityc_circle_img
-{
-    left: -210px;
-}
-
-.main_info .analityc
-{
-    right: -30px;
-    top: 150px;
-}
-
-.main_info_content
-{
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    background-image: url(../image/crumpled-paper-texture_1048-2259.avif);
-    background-size: auto;
-    border-radius: 20px;
-    margin-top: 30px;
-    line-height: 1.2;
-
-}
-
-.main_info_content *
-{
-    margin: auto;
-    padding: 20px;
-}
-
-.main_info_content p .accent
-{
-    color: #f3a007;
-    display: inline;
-}
-.main_info_content p
-{
-    display: inline;
-}
-.main_info_content img
-{
-    width: 300px;
-}
-
-.main_info h2
-{
-    display: block;
-    color: #f3a007;
-    margin-top: 50px;
-    text-align: center;
-    
-}
-
 .header_logo a {
+    color: white;
     font-family: 'Alex Brush', cursive;
     font-size: 22px;
     padding-left: 10px;
     font-weight: bold;
     font-style: italic;
-    text-shadow: 2px 2px 4px rgba(2, 12, 21, 0.5); /* добавлена тень */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* добавлена тень */
     padding: 26px 20px;
 }
 
-a:hover {
-    cursor: pointer;
-}
-
-body {
-    background-color: #f8f9fa;
-    color: #15191d;
+.header_logo a:hover{
+    color: orange;
 }
 
 header {
+    z-index: 1000; /* чтобы был выше остального контента */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: #dee0d5;
+    font-family: 'Alex Brush', cursive;
+    background-color: #3c3a3a;
+    color:white;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0 5px 5px #212529;
     align-items: center;
 }   
 
-.navbar-nav-center { 
-    display: flex;
-    flex-wrap: nowrap;       /* Не переносить элементы на новую строку */
-    gap: 10px;                /* расстояние между элементами */
-    padding: 0px 0px;        /* убирает отступы */
-    margin: 0px;
-    font-size: 20px;
-    text-shadow: 2px 2px 4px rgba(33, 37, 41, 0.5); /* добавлена тень */
-    align-items: center;     /* Выравнивание по center */
-}
-.WhoIS{
-    font-family: 'Orbitron', 'Arial Black', sans-serif;
-    font-size: 40px;
-    padding-top: 40px;
-    height: 100%;
-    text-shadow: 2px 2px 4px rgba(33, 37, 41, 0.5); /* добавлена тень */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.parametr_WhoIS_text {
-    display: flex;
-}
-
-.img_Analitic {
-    display: block;
-    margin-left: auto;
-    margin-right: 8%;   
-    padding-top: 50px;
-}
-
-.WhoIS_text {
-    font-family: 'Orbitron', 'Arial Black', sans-serif;
-    text-indent: 70px; /* красная строка */
-    line-height: 1.6;  /* расстояние между строками */
-    font-size: 24px;
-    width: 800px;
-    padding-top: 30px;
-    padding-left: 70px;
-    text-shadow: 1px 1px 3px rgba(33, 37, 41, 0.4); /* добавлена тень */
-}
-
-
-.navbar-nav-left {
+.navbar-nav-right {
     display: flex;
     flex-wrap: nowrap;       /* Не переносить элементы на новую строку */
     padding: 0px 0px;        /* убирает отступы */
@@ -173,12 +41,49 @@ header {
     display: block; /* теперь фон применяется ко всей области */
     padding: 26px 20px; /* увеличь область клика */
     text-decoration: none;
-    color: 212529;
 }
 
 .nav-link:hover {
     background-color: #212529;
-    color: #f8f9fa;
+    color: orange;
+}
+
+/* Скрыть подменю по умолчанию */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #3c3a3a;
+    padding: 0;
+    margin: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    list-style: none;
+    top: 100%;
+    min-width: 160px;
+    z-index: 1000;
+    border-radius: 4px;
+}
+
+/* Элементы внутри подменю */
+.dropdown-menu li a {
+    padding: 10px 20px;
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #212529;
+    color: orange;
+}
+
+/* Показывать меню при наведении */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.nav-item.dropdown {
+    position: relative;
 }
 
 footer {
@@ -186,44 +91,91 @@ footer {
     color: #f8f9fa;
     text-align: center;
     padding: 10px 0;
-    position: relative;
     font-size: 18px;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
 
-
-.parametr_character_text {
-    display: flex;
+.First_frame {
+    width: 100%;
+    height: 100vh;
+    background-image: url("../image/gori.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative; /* нужно для .text-block */
 }
 
-.video_character {
-   padding-top: 100px;
-   padding-left: 60px;
+.Second_frame {
+    background-color: white;
+    padding-top: 100px; 
+    position: relative;
 }
-
-.character_text{ 
-    margin-right: 80px; 
-    margin-left: auto;
-    font-family: 'Orbitron', 'Arial Black', sans-serif;
-    text-indent: 70px; /* красная строка */
-    line-height: 1.6;  /* расстояние между строками */
-    font-size: 24px;
-    width: 800px;
-    padding-top: 100px;
-    padding-left: 30px;
-    text-shadow: 1px 1px 3px rgba(33, 37, 41, 0.4); /* добавлена тень */
-}
-
-.direction{
-    font-family: 'Orbitron', 'Arial Black', sans-serif;
-    font-size: 40px;
-    padding-top: 40px;
-    height: 100%;
-    text-shadow: 2px 2px 4px rgba(33, 37, 41, 0.5); /* добавлена тень */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+h1{
+    color:orange;
+    font-size: 48px;
     text-align: center;
+    margin-bottom: 1cm;
+}
+
+.text{
+    color: white;
+    font-size: 38px;
+    letter-spacing: 2px; /* увеличивает промежутки между символами */
+    line-height: 1.1; /* 1.5–2 — комфортно читается */
+    text-indent: 2em; /* отступ первой строки абзаца */
+    
+}
+
+.text-block{
+    position: absolute;
+    top: 90px;
+    right: 60px;
+    width: 550px;
+    height: 750px;
+    background-color: #1f1d1d;
+    border-radius: 20px;
+    padding: 50px; /*мб поменяю */
+}
+
+.second_text-block_1 {
+    margin-top: 50px;
+    background-color: #1f1d1d;
+    border-radius: 20px;
+    padding: 50px;
+    width: 500px;
+    height: 50px;
+    color: white;
+    margin-left: 60px;
+    margin-bottom: 50px;
+}
+
+.second_text-block_2 {
+    margin-top: 50px;
+    background-color: #1f1d1d;
+    border-radius: 20px;
+    padding: 50px;
+    width: 550px;
+    height: 450px;
+    color: white;
+    margin-left: 60px;
+    margin-bottom: 50px;
+}
+
+.text_menu{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #3c3a3a #1f1f1f;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3c3a3a;
+  border-radius: 10px;
 }

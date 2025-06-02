@@ -3,28 +3,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>DataHunt</title>
     <link rel="icon" href="{% static 'image/101-database.svg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/static.css' %}">
 </head>
+
 <body>
     <header>
         <div class="header_logo">
             <a href="{% url 'home' %}">DataHunt</a>
         </div>
 
-        <div class="navbar-nav-center">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'statistics' %}">Статистика</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">О нас</a>
+        <ul class="navbar-nav-right">
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="#">Statistics</a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'article_direct' slug='GeneralStatistics' %}">General statistics</a></li>
+                    <li><a href="{% url 'article_direct' slug='Demand' %}">Demand</a></li>
+                    <li><a href="{% url 'article_direct' slug='Geography' %}">Geography</a></li>
+                    <li><a href="{% url 'article_direct' slug='Skills' %}">Skills</a></li>
+                    <li><a href="{% url 'article_direct' slug='LatestVacancies' %}">Latest vacancies</a></li>
+                </ul>
             </li>
             <li>
-                <a class="nav-link " href="{% url 'contact' %}">Контакты</a>
+                <a class="nav-link " href="{% url 'contact' %}">Contacts</a>
             </li>
-        </div>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About us</a>
+            </li>
+        </ul>
     </header>
 
 
@@ -35,8 +44,32 @@
 
     <footer class="footer">
         <div class="container text-center">
-            <p class="text-muted">© 2025 Yegor Shabrov. Все права защищены.</p>
+            <p class="text-muted">© 2025 Yegor Shabrov</p>
         </div>
     </footer>
+
+
+    <script>
+    // Отключаем масштабирование через Ctrl + колесо мыши
+    window.addEventListener('wheel', function (e) {
+        if (e.ctrlKey) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    // Отключаем масштабирование через жесты (на тачпадах Mac)
+    window.addEventListener('gesturestart', function (e) {
+        e.preventDefault();
+    });
+
+    window.addEventListener('gesturechange', function (e) {
+        e.preventDefault();
+    });
+
+    window.addEventListener('gestureend', function (e) {
+        e.preventDefault();
+    });
+</script>
+
 </body>
 </html>
