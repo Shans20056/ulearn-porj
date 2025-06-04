@@ -16,3 +16,6 @@ venv/
 # OS-specific
 .DS_Store
 Thumbs.db
+
+# CSV files
+*.csv
