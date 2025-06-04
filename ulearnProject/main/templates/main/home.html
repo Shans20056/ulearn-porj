@@ -1,4 +1,3 @@
-
 {% extends 'article_list.html' %}
 {% load static %}
 
@@ -7,38 +6,76 @@
     <div class="First_frame">
         <div class="text-block">
             <h1 class="title_block">
-                Conquering the Peaks of Analytics
+                Покоряя вершины аналитики
             </h1>
             <p class="text">
-                The work of an analyst is like climbing a mountain.
+                Работа аналитика — как восхождение в горы.
             </p>
             <p class="text">
-                The journey is challenging — steep slopes of data, cliffs of hidden insights, and fogs of ambiguity. But those who reach the summit gain a breathtaking view — deep understanding, recognition, and high rewards.
+                Путь непрост — крутые склоны данных, обрывы скрытых инсайтов и туманы неопределённости. Но те, кто достигает вершины, получают захватывающий обзор — глубокое понимание, признание и высокую оплату.
             </p>
             <p class="text">
-                Today, analysts are among the most sought-after professionals, guiding others through the uncertain terrain of the modern world.
+                Сегодня аналитики — одни из самых востребованных специалистов, проводники в сложном мире данных.
             </p>
         </div>
     </div>
 
-    <div class="Second_frame">
-        <div class="second_text-block_1">
-            <h1 class="title_block">
-                How an Analyst Works
-            </h1>
+    <div class="Second_frame_background">
+        <div class="Second_frame">
+            <div class="second_text-block_1">
+                <h1 class="title_block">
+                    Как работает аналитик
+                </h1>
+            </div>
+            
+            <div class="content-row">
+                <div class="second_text-block_2">
+                    <p class="text">
+                        Работа аналитика — это структурированный процесс решения бизнес-задач с помощью данных.
+                    </p>
+                    <p class="text">
+                        Первый шаг — постановка задачи. Аналитик совместно с заказчиком определяет, что именно нужно измерить, какие метрики важны и какие решения будут основываться на анализе.
+                    </p>
+                </div>
+                <img class="second_text-block_3" src="{% static 'image/second_text-block_img_2.jpeg' %}" alt="Описание изображения" />
+            </div>
         </div>
-        
-        <div class="second_text-block_2">
-            <p class="text">
-                The work of an analyst is a structured process of solving business problems using data.
-            </p>
-            <p class="text">The first step is problem definition. The analyst collaborates with stakeholders to understand exactly what needs to be measured, which metrics matter, and what decisions will rely on the analysis.
 
-            </p>
+        <div class="third_frame">
+            <div class="content-row">
+            <div class="third_text-block_2">
+                <p class="text">
+                    Далее следует сбор данных. Это может быть выгрузка из баз данных, CRM-систем, API, Excel-файлов и других источников. Критически важно обеспечить полноту, точность и актуальность данных.
+                </p>
+            </div>
+            <img class="third_text-block_3" src="{% static 'image/second_text-block_img_3.png' %}" alt="Описание изображения" />
         </div>
-        
+        </div>
 
+        <div class="fourth_frame">
+            <div class="content-row">
+                <div class="fourth_text-block_2">
+                    <p class="text">
+                        После этого аналитик переходит к подготовке и анализу данных. Первый шаг — очистка: удаление дубликатов, исправление ошибок, приведение форматов к единому виду, создание новых признаков. Это может занять до 80% времени.
+                    </p>
+                    <p class="text">
+                        Затем, с помощью SQL, Python, Excel или BI-систем, аналитик выявляет закономерности, связи и аномалии. Главное — не просто посчитать цифры, а интерпретировать их с учётом бизнес-целей.
+                    </p>
+                </div>
+                <img class="fourth_text-block_3" src="{% static 'image/second_text-block_img_4.png' %}" alt="Описание изображения" />
+            </div>
+        </div>
 
+        <div class="fifth_frame">
+            <div class="content-row">
+                <div class="fifth_text-block_2">
+                    <p class="text">
+                        Результаты оформляются в виде отчёта, презентации или интерактивной панели. Последний этап — донесение выводов и помощь в принятии решений. Сильный аналитик работает не только с данными, но и говорит на языке бизнеса.
+                    </p>
+                </div>
+                <img class="fifth_text-block_3" src="{% static 'image/second_text-block_img_5.png' %}" alt="Описание изображения" />
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

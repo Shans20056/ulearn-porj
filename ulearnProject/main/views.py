@@ -16,14 +16,5 @@ def home(request):
         'title': 'Главная страница'
     })
 
-def about(request):
-    return render(request, 'main/about.html', {
-        'title': 'О нас'
-    })
-
-def contact(request):
-    return render(request, 'main/contact.html', {
-        'title': 'Контакты'
-    })
 
 

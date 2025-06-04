@@ -8,6 +8,8 @@
     <link rel="icon" href="{% static 'image/101-database.svg' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/static.css' %}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -18,36 +20,41 @@
 
         <ul class="navbar-nav-right">
             <li class="nav-item dropdown">
-                <a class="nav-link" href="#">Statistics</a>
+                <a class="nav-link" href="">Статистика</a>
                 <ul class="dropdown-menu">
-                    <li><a href="{% url 'article_direct' slug='GeneralStatistics' %}">General statistics</a></li>
-                    <li><a href="{% url 'article_direct' slug='Demand' %}">Demand</a></li>
-                    <li><a href="{% url 'article_direct' slug='Geography' %}">Geography</a></li>
-                    <li><a href="{% url 'article_direct' slug='Skills' %}">Skills</a></li>
-                    <li><a href="{% url 'article_direct' slug='LatestVacancies' %}">Latest vacancies</a></li>
+                    <li><a href="{% url 'article_direct' slug='GeneralStatistics' %}">Общая статистика</a></li>
+                    <li><a href="{% url 'article_direct' slug='Demand' %}">Востребованность</a></li>
+                    <li><a href="{% url 'article_direct' slug='Geography' %}">География</a></li>
+                    <li><a href="{% url 'article_direct' slug='Skills' %}">Навыки</a></li>
+                    <li><a href="{% url 'article_direct' slug='LatestVacancies' %}">Последние вакансии</a></li>
                 </ul>
             </li>
             <li>
-                <a class="nav-link " href="{% url 'contact' %}">Contacts</a>
+                <a class="nav-link " href="{% url 'article_direct' slug='contact' %}">Контакты</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About us</a>
+                <a class="nav-link" href="{% url 'article_direct' slug='about' %}">О нас</a>
             </li>
         </ul>
     </header>
 
 
-    <div class="container content">
+    <main class="container content">
         {% block content %}
         {% endblock %}
-    </div>
+    </main>
 
     <footer class="footer">
-        <div class="container text-center">
-            <p class="text-muted">© 2025 Yegor Shabrov</p>
-        </div>
+        <p class="text-muted">© 2025 Yegor Shabrov</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+        duration: 1000,
+        once: true
+        });
+    </script>
 
     <script>
     // Отключаем масштабирование через Ctrl + колесо мыши
@@ -69,7 +76,6 @@
     window.addEventListener('gestureend', function (e) {
         e.preventDefault();
     });
-</script>
-
+    </script>
 </body>
 </html>
