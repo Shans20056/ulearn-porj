@@ -5,4 +5,31 @@
 <div>
     {{ article.content|safe }}
 </div>
+
+<script>
+    function openFullscreen(img) {
+        const fullscreenContainer = document.createElement('div');
+        fullscreenContainer.style.position = 'fixed';
+        fullscreenContainer.style.top = 0;
+        fullscreenContainer.style.left = 0;
+        fullscreenContainer.style.width = '100vw';
+        fullscreenContainer.style.height = '100vh';
+        fullscreenContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+        fullscreenContainer.style.display = 'flex';
+        fullscreenContainer.style.alignItems = 'center';
+        fullscreenContainer.style.justifyContent = 'center';
+        fullscreenContainer.style.zIndex = 1000;
+        fullscreenContainer.style.cursor = 'zoom-out';
+    
+        const fullImg = document.createElement('img');
+        fullImg.src = img.src;
+        fullImg.style.maxWidth = '90%';
+        fullImg.style.maxHeight = '90%';
+        fullscreenContainer.appendChild(fullImg);
+    
+        fullscreenContainer.onclick = () => document.body.removeChild(fullscreenContainer);
+    
+        document.body.appendChild(fullscreenContainer);
+    }
+    </script>
 {% endblock %}

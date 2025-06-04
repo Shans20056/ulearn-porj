@@ -4,7 +4,7 @@ from xml.etree import ElementTree
 import matplotlib.pyplot as plt
 import pandas as pd
 from itertools import islice
-#matplotlib.use('Agg')
+import textwrap
 
 
 # --------------------------------------------------------------------------------------------------Functions for data processing
@@ -22,7 +22,7 @@ def preprocess_data(df):
     # Удаляем строки без данных о зарплате
     df = df.dropna(subset=['salary_from', 'salary_to'])
     # Считаем среднюю зарплату
-    df['average_salary'] = df[['salary_from', 'salary_to']].mean(axis=1)
+    df.loc[:, 'average_salary'] = df[['salary_from', 'salary_to']].mean(axis=1)
     df = df.dropna(subset=['average_salary'])
     # Получаем курсы валют
     currency_to_rub = get_all_exchange_rates()
@@ -56,31 +56,35 @@ def calculate_average_salary(df):
 
 # Фильтрация данных по ключевым словам (analytic)
 def filter_data_by_keywords(df):
-    keywords = ['analytic', 'аналитик', 'analyst', 'аналітик']
+    keywords = ['аналитик', 'analyst', 'analytic', 'аналітик', 'business intelligence', 'bi']
     pattern = '|'.join(keywords)
-    filtered_df = df[
+
+    return df[
+        df['name'].str.lower().str.contains(pattern, na=False) |
         df['area_name'].str.lower().str.contains(pattern, na=False) |
         df['key_skills'].str.lower().str.contains(pattern, na=False)
     ]
-    return filtered_df
-
 # --------------------------------------------------------------------------------------------------------General_stats
 
-# Построение графика динамики количества вакансий по годам
-def plot_vacancy_trends(df, output_path):
-    df = filter_data_by_keywords(df)
-    vacancy_trends = df.groupby('year').size()
-    plt.figure(figsize=(10, 6))
-    vacancy_trends.plot(kind='bar', color='skyblue')
-    plt.title('Динамика количества вакансий по годам')
-    plt.xlabel('Год')
-    plt.ylabel('Количество вакансий')
-    plt.xticks(rotation=45)
-    plt.grid(axis='y', linestyle='--', alpha=0.7)
+def plot_vacancy_trends(df_all, df_analyst, output_path):
+    all_vacancies_by_year = df_all.groupby('year').size()
+    analyst_vacancies_by_year = df_analyst.groupby('year').size()
+
+    plt.figure(figsize=(12, 7))
+    plt.bar(all_vacancies_by_year.index, all_vacancies_by_year.values, 
+            label='Все вакансии', alpha=0.5, color='skyblue')
+
+    plt.plot(analyst_vacancies_by_year.index, analyst_vacancies_by_year.values,
+            color='red', marker='o', label='Аналитик')
+
+    plt.title("Сравнение количества вакансий: все и аналитик")
+    plt.xlabel("Год")
+    plt.ylabel("Количество вакансий")
+    plt.legend()
+    plt.grid(True)
     plt.tight_layout()
     plt.savefig(output_path)
     plt.close()
-
 # --------------------------------------------------------------------------------------------------------DEMAND
 
 def plot_salary_trends(df, output_path):
@@ -96,21 +100,6 @@ def plot_salary_trends(df, output_path):
     plt.savefig(output_path)
     plt.close()
 
-
-def plot_vacancy_count(df, output_path):
-    df = filter_data_by_keywords(df)
-    vacancy_counts = df.groupby('year').size()
-    plt.figure(figsize=(10, 6))
-    vacancy_counts.plot(kind='bar', color='orange')
-    plt.title('Динамика количества вакансий по годам для аналитика')
-    plt.xlabel('Год')
-    plt.ylabel('Количество вакансий')
-    plt.xticks(rotation=45)
-    plt.grid(axis='y', linestyle='--', alpha=0.7)
-    plt.tight_layout()
-    plt.savefig(output_path)
-    plt.close()
-    
 # --------------------------------------------------------------------------------------------------------Geography
 
 def plot_city_vacancy_share(df, output_path):
@@ -186,6 +175,22 @@ def plot_top_skills_overall(df, output_path, top_n=20):
     plt.savefig(output_path, bbox_inches='tight')
     plt.close()
 
+# -------------------------------------------------------------------------------------------------------Recent Vacancies
+
+def get_recent_analyst_vacancies(df, top_n=20):
+    """
+    Возвращает таблицу из top_n последних аналитических вакансий.
+    """
+    df = filter_data_by_keywords(df)
+    df = df.sort_values(by='published_at', ascending=False)
+    
+    # Выбираем нужные столбцы (можно расширить по желанию)
+    columns = ['published_at', 'name', 'area_name', 'employer_name', 'average_salary', 'alternate_url']
+    existing_columns = [col for col in columns if col in df.columns]
+    return df[existing_columns].head(top_n)
+
+
+
 # -------------------------------------------------------------------------------------------------------ConvertRub.
 
 # Функция для получения всех курсов валют с сайта ЦБ РФ
@@ -225,3 +230,45 @@ def convert_to_rub(row, currency_to_rub):
     if currency in currency_mapping and currency_mapping[currency] in currency_to_rub:
         return row['average_salary'] * currency_to_rub[currency_mapping[currency]]
     return row['average_salary']
+
+
+# -------------------------------------------------------------------------------------------------------save_table_as_image
+
+
+def save_table_as_image(df, output_path):
+    max_col_width = 35
+    df_wrapped = df.copy()
+
+    # Перенос длинных текстов
+    for col in df_wrapped.columns:
+        df_wrapped[col] = df_wrapped[col].apply(
+            lambda x: '\n'.join(textwrap.wrap(str(x), max_col_width)) if pd.notnull(x) else ''
+        )
+
+    # Вычисление размеров
+    row_height = 0.5
+    font_size = 8
+    fig_height = max(2, row_height * len(df_wrapped) + 1.5)
+    fig_width = 2 + len(df.columns) * 2
+    fig, ax = plt.subplots(figsize=(fig_width, fig_height))
+    ax.axis('off')
+
+    # Построение таблицы
+    table = ax.table(
+        cellText=df_wrapped.values,
+        colLabels=df_wrapped.columns,
+        loc='center',
+        cellLoc='center'
+    )
+    table.auto_set_font_size(False)
+    table.set_fontsize(font_size)
+    table.scale(1.2, 3.2)
+
+    # Сохраняем
+    try:
+        plt.tight_layout()
+        plt.savefig(output_path, dpi=200, bbox_inches='tight')
+    except Exception as e:
+        print(f"Ошибка при сохранении изображения: {e}")
+    finally:
+        plt.close(fig)
