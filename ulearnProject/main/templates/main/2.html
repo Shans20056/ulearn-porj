@@ -1,0 +1,127 @@
+<style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      background-color: #222;
+      color: #ddd;
+      font-family: Arial, sans-serif;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      color: orange;
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .lead {
+      text-align: center;
+      font-size: 18px;
+      color: #bbb;
+      margin-bottom: 40px;
+    }
+
+    .info-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      align-items: stretch; /* тянет все карточки по высоте */
+    }
+
+    .info-card {
+      background-color: #1a1a1a;
+      padding: 25px 30px;
+      border-radius: 10px;
+      color: #ddd;
+      font-size: 16px;
+      line-height: 1.6;
+      box-shadow: 0 0 8px rgba(255, 165, 0, 0.1);
+      flex: 1 1 300px;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column; /* позволяет блоку тянуться по высоте */
+    }
+
+    .info-card h5 {
+      color: #ffae42;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .info-card ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .info-card li {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: #131313;
+      color: #f8f9fa;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 18px;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin-top: 30px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .info-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="container">
+      <h1>Контакты</h1>
+      <p class="lead">Мы всегда готовы помочь и ответить на ваши вопросы</p>
+
+      <div class="info-row">
+        <div class="info-card">
+          <h5>📍 Наши контакты</h5>
+          <ul>
+            <li><strong>Email:</strong> info@DataHunt.com</li>
+            <li><strong>Телефон:</strong> +7 (999) 123-45-67</li>
+            <li><strong>Адрес:</strong> г. Москва, ул. Примерная, д. 1</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h5>⏰ Время работы</h5>
+          <ul>
+            <li>Пн–Пт: 9:00 – 18:00</li>
+            <li>Сб–Вс: выходной</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>

@@ -16,16 +16,16 @@
         <div class="header_logo">
             <a href="{% url 'home' %}">DataHunt</a>
         </div>
-
-        <ul class="navbar-nav-right">
+        <div id="burger" class="burger"></div>
+        <ul class="navbar-nav-right" id="nav-menu">
             <li class="nav-item dropdown">
-                <a class="nav-link" href="">Статистика</a>
+                <a class="nav-link" href="#">Статистика</a>
                 <ul class="dropdown-menu">
-                    <li><a href="{% url 'article_direct' slug='GeneralStatistics' %}">Общая статистика</a></li>
-                    <li><a href="{% url 'article_direct' slug='Demand' %}">Востребованность</a></li>
-                    <li><a href="{% url 'article_direct' slug='Geography' %}">География</a></li>
-                    <li><a href="{% url 'article_direct' slug='Skills' %}">Навыки</a></li>
-                    <li><a href="{% url 'article_direct' slug='LatestVacancies' %}">Последние вакансии</a></li>
+                    <li><a class="slug_button" href="{% url 'article_direct' slug='GeneralStatistics' %}">Общая статистика</a></li>
+                    <li><a class="slug_button" href="{% url 'article_direct' slug='Demand' %}">Востребованность</a></li>
+                    <li><a class="slug_button" href="{% url 'article_direct' slug='Geography' %}">География</a></li>
+                    <li><a class="slug_button" href="{% url 'article_direct' slug='Skills' %}">Навыки</a></li>
+                    <li><a class="slug_button" href="{% url 'article_direct' slug='LatestVacancies' %}">Последние вакансии</a></li>
                 </ul>
             </li>
             <li>
@@ -76,5 +76,33 @@
         e.preventDefault();
     });
     </script>
+
+<script>
+    const burger = document.getElementById('burger');
+    const navMenu = document.getElementById('nav-menu');
+    const dropdown = document.querySelector('.nav-item.dropdown');
+    const dropdownToggle = dropdown?.querySelector('.nav-link');
+  
+    burger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      burger.classList.toggle('open');
+    });
+  
+    dropdownToggle?.addEventListener('click', (e) => {
+      e.preventDefault();
+      dropdown.classList.toggle('open');
+    });
+  
+    // Закрытие при клике вне
+    document.addEventListener('click', (e) => {
+      const isInside = navMenu.contains(e.target) || burger.contains(e.target);
+      if (!isInside) {
+        navMenu.classList.remove('active');
+        burger.classList.remove('open');
+        dropdown?.classList.remove('open');
+      }
+    });
+  </script>
+  
 </body>
 </html>

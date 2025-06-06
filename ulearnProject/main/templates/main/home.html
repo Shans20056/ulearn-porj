@@ -2,34 +2,33 @@
 {% load static %}
 
 {% block content %}
+<div class="top-spacer" style="height: 90px"></div>
 <div class="main_info">
     <div class="First_frame">
-        <div class="text-block">
-            <h1 class="title_block">
-                Покоряя вершины аналитики
-            </h1>
-            <p class="text">
-                Работа аналитика — как восхождение в горы.
-            </p>
-            <p class="text">
-                Путь непрост — крутые склоны данных, обрывы скрытых инсайтов и туманы неопределённости. Но те, кто достигает вершины, получают захватывающий обзор — глубокое понимание, признание и высокую оплату.
-            </p>
-            <p class="text">
-                Сегодня аналитики — одни из самых востребованных специалистов, проводники в сложном мире данных.
-            </p>
+        <div class="content-row">
+            <div class="text-block">
+                <h1 class="title_block">
+                    Покоряя вершины аналитики
+                </h1>
+                <p class="text">
+                    Работа аналитика — как восхождение в горы.
+                </p>
+                <p class="text">
+                    Путь непрост — крутые склоны данных, обрывы скрытых инсайтов и туманы неопределённости. Но те, кто достигает вершины, получают захватывающий обзор — глубокое понимание, признание и высокую оплату.
+                </p>
+                <p class="text">
+                    Сегодня аналитики — одни из самых востребованных специалистов, проводники в сложном мире данных.
+                </p>
+            </div>
         </div>
     </div>
-
     <div class="Second_frame_background">
-        <div class="Second_frame">
-            <div class="second_text-block_1">
-                <h1 class="title_block">
-                    Как работает аналитик
-                </h1>
-            </div>
-            
+        <div class="Second_frame">            
             <div class="content-row">
-                <div class="second_text-block_2">
+                <div class="text-block">
+                    <h1 class="title_block">
+                        Как работает аналитик
+                    </h1>
                     <p class="text">
                         Работа аналитика — это структурированный процесс решения бизнес-задач с помощью данных.
                     </p>
@@ -37,24 +36,24 @@
                         Первый шаг — постановка задачи. Аналитик совместно с заказчиком определяет, что именно нужно измерить, какие метрики важны и какие решения будут основываться на анализе.
                     </p>
                 </div>
-                <img class="second_text-block_3" src="{% static 'image/second_text-block_img_2.jpeg' %}" alt="Описание изображения" />
+                <img class="image" src="{% static 'image/second_text-block_img_2.jpeg' %}" alt="Описание изображения" />
             </div>
         </div>
 
         <div class="third_frame">
             <div class="content-row">
-            <img class="third_text-block_3" src="{% static 'image/second_text-block_img_3.png' %}" alt="Описание изображения" />
-            <div class="third_text-block_2">
+            <div class="text-block">
                 <p class="text">
                     Далее следует сбор данных. Это может быть выгрузка из баз данных, CRM-систем, API, Excel-файлов и других источников. Критически важно обеспечить полноту, точность и актуальность данных.
                 </p>
             </div>
+            <img class="image" src="{% static 'image/second_text-block_img_3.png' %}" alt="Описание изображения" />
         </div>
         </div>
 
         <div class="fourth_frame">
             <div class="content-row">
-                <div class="fourth_text-block_2">
+                <div class="text-block">
                     <p class="text">
                         После этого аналитик переходит к подготовке и анализу данных. Первый шаг — очистка: удаление дубликатов, исправление ошибок, приведение форматов к единому виду, создание новых признаков. Это может занять до 80% времени.
                     </p>
@@ -62,21 +61,20 @@
                         Затем, с помощью SQL, Python, Excel или BI-систем, аналитик выявляет закономерности, связи и аномалии. Главное — не просто посчитать цифры, а интерпретировать их с учётом бизнес-целей.
                     </p>
                 </div>
-                <img class="fourth_text-block_3" src="{% static 'image/second_text-block_img_4.png' %}" alt="Описание изображения" />
+                <img class="image" src="{% static 'image/second_text-block_img_4.png' %}" alt="Описание изображения" />
             </div>
         </div>
 
         <div class="fifth_frame">
             <div class="content-row">
-                <img class="fifth_text-block_3" src="{% static 'image/second_text-block_img_5.png' %}" alt="Описание изображения" />
-                <div class="fifth_text-block_2">
+                <div class="text-block">
                     <p class="text">
                         Результаты оформляются в виде отчёта, презентации или интерактивной панели. Последний этап — донесение выводов и помощь в принятии решений. Сильный аналитик работает не только с данными, но и говорит на языке бизнеса.
                     </p>
                 </div>
+                <img class="image" src="{% static 'image/second_text-block_img_5.png' %}" alt="Описание изображения" />
             </div>
         </div>
-        <div style="height: 80px;"></div>
     </div>
 </div>
 {% endblock %}
