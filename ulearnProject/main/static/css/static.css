@@ -73,6 +73,91 @@ header {
 .nav-item.dropdown:hover .dropdown-menu {
   display: block;
   }
+
+.First_frame{
+  background: url("../image/gori.jpg") center/cover no-repeat;
+  height: 100vh;
+  position: relative;
+}
+
+.main_info{
+  height: 3300px;
+}
+
+#preview{
+  height: 490px ;
+  width: 600px;
+  margin-top: 175px;
+  margin-left: 1020px;
+  position: absolute;
+}
+
+
+#first_section {
+  position: absolute;
+  width: 500px;
+  margin-top: 70px;
+  margin-left: 170px;
+}
+
+#first_section_image{
+  position: absolute;
+  width: 500px;
+  margin-top: 135px;
+  margin-left: 1100px;
+}
+
+#second_section {
+  position: absolute;
+  width: 500px;
+  margin-top: 710px;
+  margin-left: 1070px;
+}
+
+#second_section_image{
+  position: absolute;
+  width: 500px;
+  margin-top: 700px;
+  margin-left: 200px;
+}
+
+#third_section{
+  position: absolute;
+  width: 500px;
+  margin-top: 1130px;
+  margin-left: 170px;
+}
+
+#third_section_image{
+  position: absolute;
+  width: 500px;
+  margin-left: 1100px;
+  margin-top: 1230px;
+}
+
+#fourth_section{
+  position: absolute;
+  width: 500px;
+  margin-top: 1870px;
+  margin-left: 1100px;
+}
+
+#fourth_section_image{
+  position: absolute;
+  width: 500px;
+  margin-top: 1840px;
+  margin-left: 200px;
+}
+
+.title_block {
+  font-size: 40px !important;
+}
+
+
+.text-block {
+  font-size: 24px !important;
+}
+
 }
 
 
@@ -204,6 +289,17 @@ header {
   .dropdown-menu li a {
     font-size: 20px;
   }
+
+  .content-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 20px;
+  }
 }
 
 
@@ -287,17 +383,6 @@ html {
 .text {
   text-indent: 40px;
   margin-bottom: 15px;
-}
-
-.content-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  margin: 40px auto;
-  max-width: 1200px;
-  padding: 20px;
 }
 
 
